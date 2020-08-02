@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.min.css" integrity="sha512-zzq8ZrbhP7DGbwClbqSYuo+di3FvAlMNykCKWE6pHuqmCgGjJSISDTzy7QkdI2ajLlgw0nx6hxIu8os2hYuN8w==" crossorigin="anonymous" />
+    <title>Sindic Teams</title>
+</head>
+<body>
+    <h1>Sindic Teams</h1>
+    <div class='buttons'>
+        <button id='create-room'>Create room</button>
+    </div>
+    <script>
+        const create = document.querySelector('#create-room');
+        create.addEventListener('click', async(event) => {
+            const resp = await fetch('/', {
+                method: 'POST'
+            })
+            const text = await resp.text();
+            window.location.href = `/room/${text}`;
+        });
+    </script>
+</body>
+</html>
